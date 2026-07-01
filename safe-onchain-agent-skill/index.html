@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safe On-Chain Agent Skill for Solana</title>
+    <meta name="description" content="Production-grade safety middleware and execution environment for autonomous AI agents on Solana.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --text-primary: #c9d1d9;
+            --text-secondary: #8b949e;
+            --accent-primary: #58a6ff;
+            --accent-hover: #1f6feb;
+            --card-bg: rgba(22, 27, 34, 0.7);
+            --border-color: #30363d;
+            --solana-purple: #9945FF;
+            --solana-green: #14F195;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle at top center, rgba(153, 69, 255, 0.15) 0%, transparent 40%),
+                              radial-gradient(circle at bottom center, rgba(20, 241, 149, 0.1) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 0;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, var(--solana-green), var(--solana-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-primary);
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(88, 166, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-primary);
+            border-color: var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--text-primary);
+            background-color: rgba(255, 255, 255, 0.05);
+            transform: translateY(-2px);
+        }
+
+        section {
+            margin-bottom: 60px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 1s ease-out;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-primary);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin-top: 0;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
+        }
+
+        ul li::before {
+            content: "🛡️";
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+
+        pre {
+            background-color: #161b22;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 16px;
+            overflow-x: auto;
+            color: #e6edf3;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: rgba(110, 118, 129, 0.4);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        .demo-card {
+            background: linear-gradient(135deg, rgba(22, 27, 34, 0.8), rgba(48, 54, 61, 0.5));
+            border-left: 4px solid var(--solana-green);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 20px;
+        }
+
+        .demo-card h3 {
+            margin-top: 0;
+            color: #ffffff;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-color);
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Safe On-Chain Agent Skill</h1>
+            <p class="tagline">Production-grade safety middleware and execution environment for autonomous AI agents on Solana.</p>
+            <div class="cta-buttons">
+                <a href="#install" class="btn btn-primary">Install Now</a>
+                <a href="https://github.com/Cryptojigi/safe-onchain-agent-skill" class="btn btn-secondary" target="_blank">View GitHub Repo</a>
+                <a href="https://github.com/Cryptojigi/safe-onchain-agent-skill/blob/main/README.md" class="btn btn-secondary" target="_blank">Full README</a>
+            </div>
+        </header>
+
+        <section id="features">
+            <h2>Key Features</h2>
+            <ul>
+                <li><strong>Simulation-First Execution:</strong> Every transaction is dry-run against mainnet state before requesting signatures to prevent failures and save compute fees.</li>
+                <li><strong>Intelligent Error Recovery:</strong> Intercepts raw Solana errors (like 0x1771) and feeds actionable, semantic feedback back to the LLM for autonomous self-healing.</li>
+                <li><strong>Scoped Permissions & Wallet Hygiene:</strong> Enforces zero-trust architecture using session keys, embedded wallets, and granular amount/action/time-bound allowances.</li>
+                <li><strong>Composability:</strong> Designed to drop directly into the Solana AI Kit as safety middleware without rewriting existing logic.</li>
+            </ul>
+        </section>
+
+        <section id="demo">
+            <h2>Demo Concept: Self-Healing Jupiter Swap</h2>
+            <p>Witness the power of semantic error recovery. When the agent attempts a swap but the market moves, it doesn't panic.</p>
+            
+            <div class="demo-card">
+                <h3>The Flow</h3>
+                <p>1. <strong>Agent:</strong> Proposes swapping 10 USDC for SOL.</p>
+                <p>2. <strong>Middleware:</strong> Simulates the transaction.</p>
+                <p>3. <strong>Result:</strong> Simulation fails with `SlippageToleranceExceeded`.</p>
+                <p>4. <strong>Middleware:</strong> Injects semantic context back to the LLM.</p>
+                <p>5. <strong>Agent:</strong> Autonomously recalculates route with 0.5% higher slippage.</p>
+                <p>6. <strong>Middleware:</strong> Re-simulates successfully, then executes.</p>
+            </div>
+        </section>
+
+        <section id="install">
+            <h2>How to Install</h2>
+            <p>Install the skill locally or globally using our simple one-liner bash script. This handles cloning the repository and setting up the mandatory `.claude/rules`.</p>
+            <pre><code>curl -sSL https://raw.githubusercontent.com/Cryptojigi/safe-onchain-agent-skill/main/install.sh | bash</code></pre>
+            <p>For custom installation options (like project-local setups), download and run the interactive installer:</p>
+            <pre><code>curl -O https://raw.githubusercontent.com/Cryptojigi/safe-onchain-agent-skill/main/install-custom.sh
+chmod +x install-custom.sh
+./install-custom.sh</code></pre>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Built for the Solana AI Kit.</p>
+        </footer>
+    </div>
+</body>
+</html>
